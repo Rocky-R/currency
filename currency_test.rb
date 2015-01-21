@@ -9,7 +9,7 @@ class CurrencyTest < Minitest::Test
   end
 
   def test_01_currency_has_creation_arguments
-      assert Currency.new("", "")
+      assert Currency.new(100, :USD)
   end
 
   def test_02_different_currecy_object_equality
