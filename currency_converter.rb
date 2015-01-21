@@ -1,9 +1,9 @@
 class CurrencyConverter
-  def initialize
-    @conversion_rates = { usd: 1.00, eur: 0.86 }
+  def initialize(rates)
+    @conversion_rates = rates
   end
 
   def convert(currency, conv_code)
-    
+    currency.amount * @conversion_rates[conv_code]
   end
 end
