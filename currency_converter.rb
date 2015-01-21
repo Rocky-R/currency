@@ -4,6 +4,6 @@ class CurrencyConverter
   end
 
   def convert(currency, conv_code)
-    currency.amount * @conversion_rates[conv_code]
+    @conversion_rates[conv_code] / currency.amount
   end
 end

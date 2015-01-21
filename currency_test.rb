@@ -58,7 +58,10 @@ class CurrencyTest < Minitest::Test
   def test_08_test_if_currency_can_be_converted
     converter = CurrencyConverter.new({ USD: 1.00, EUR: 0.86, AED: 3.67 })
     us_dollars = Currency.new(1, :USD)
+    euros = Currency.new(0.86, :EUR)
     assert_equal 0.86, converter.convert(us_dollars, :EUR)
+    assert_equal 3.67, converter.convert(us_dollars, :AED)
+    assert_equal 4.27, (converter.convert(euros, :AED)).round(2)
   end
 
 
