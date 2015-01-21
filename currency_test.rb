@@ -14,7 +14,9 @@ class CurrencyTest < Minitest::Test
   def test_02_different_currecy_object_equality
     us_dollars = Currency.new(100, "USD")
     ca_dollars = Currency.new(100, "USD")
+    abu_dhabi = Currency.new(100, "AED")
     assert_equal true, us_dollars == ca_dollars
+    refute us_dollars == abu_dhabi
   end
 
   def test_03_if_like_currencies_can_be_added
@@ -45,5 +47,6 @@ class CurrencyTest < Minitest::Test
   def test_06_multiplying_currency_by_fixnum_or_float
     us_dollars = Currency.new(100, "USD")
     assert_equal 1000, us_dollars * 10
+    assert_equal 50, us_dollars * 0.5
   end
 end

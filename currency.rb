@@ -31,7 +31,7 @@ class Currency
     if currency_object.code == @code
       @amount - currency_object.amount
     else
-      raise DifferentCurrencyCodeError, "The currency codes between these do not match."
+      raise DifferentCurrencyCodeError, "The currency codes between these items does not match."
       return nil
     end
   end
