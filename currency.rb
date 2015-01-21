@@ -16,13 +16,13 @@ class Currency
   end
 
   def symbol_code(symbol)
-    code_lookup = { "$" => "USD",
-      "€" => "EUR",
-      "¥" => "JPY",
-      "£" => "GBP",
-      "₹" => "INR",
-      "R" => "ZAR"}
-      
+    code_lookup = { "$" => :USD,
+      "€" => :EUR,
+      "¥" => :JPY,
+      "£" => :GBP,
+      "₹" => :INR,
+      "R" => :ZAR}
+
     if code_lookup.has_key?(symbol)
       return code_lookup[symbol]
     else raise UnknownCurrencyCodeError, "Unrecognized currency symbol."
@@ -32,6 +32,10 @@ class Currency
   def ==(currency_object)
     if currency_object.amount == @amount &&
       currency_object.code == @code
+      return true
+    elsif
+      currency_object.amount == @amount &&
+      @code == nil
       return true
     else
       return false
