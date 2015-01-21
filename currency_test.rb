@@ -64,5 +64,11 @@ class CurrencyTest < Minitest::Test
     assert_equal 4.27, (converter.convert(euros, :AED)).round(2)
   end
 
-
+  def test_09_error_raised_for_unknown_currency
+    converter = CurrencyConverter.new({ USD: 1.00, EUR: 0.86, AED: 3.67 })
+    euros = Currency.new(0.86, :EUR)
+    assert_raises(UnknownCurrencyCodeError) do
+      converter.convert(euros, :JPY)
+    end
+  end
 end
