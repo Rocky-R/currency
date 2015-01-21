@@ -1,5 +1,4 @@
 class DifferentCurrencyCodeError < StandardError
-
 end
 
 class Currency
