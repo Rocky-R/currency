@@ -71,4 +71,9 @@ class CurrencyTest < Minitest::Test
       converter.convert(euros, :JPY)
     end
   end
+
+  def test_10_is_currency_symbols_are_converted
+    us_dollars = Currency.new(100, :USD)
+    assert_equal true, us_dollars == Currency.new("$100")
+  end
 end
