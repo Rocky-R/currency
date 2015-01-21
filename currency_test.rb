@@ -52,6 +52,13 @@ class CurrencyTest < Minitest::Test
   end
 
   def test_07_if_currency_converter_class_exists
-    assert Currency
+    assert CurrencyConverter
   end
+
+  def test_08_test_if_currency_can_be_converted
+    converter = CurrencyConverter.new
+    assert_equal 0.86, converter.convert(Currency.new(1, :USD), :EUR)
+  end
+
+
 end
